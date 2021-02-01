@@ -15,7 +15,7 @@
  *
  */
 
-def version() {"v1.0.20210129"}
+def version() {"v1.0.20210201"}
 
 metadata {
 	definition (name: "Webex Parent", namespace: "rylatorr", author: "Ryan LaTorre") {
@@ -75,7 +75,6 @@ def updatePhoneNumber() { // syncs device label with componentLabel data value
 
 
 def sendNotification(roomId, message, deviceID) {
-  	//def postBody = "{\"roomId\": ${roomId}, \"text\": \"${message}\"}"
   	def postBody = [
         roomId: "${roomId}",
 		text: "${message}"
@@ -86,13 +85,12 @@ def sendNotification(roomId, message, deviceID) {
     	headers: [
 			"Authorization": "Bearer " + ("${authToken}").toString()
 		],
-		contentType: "application/json",
         body: postBody
   	]
 
     if (authToken =~ /[A-Za-z0-9_\-]{64,106}/) {
         try {
-            httpPost(params){response ->
+            httpPostJson(params){response ->
                 if (response.status != 200) {
                     log.error "Received HTTP error ${response.status}. Check your API Credentials!"
                 } else {
