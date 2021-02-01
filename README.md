@@ -40,15 +40,3 @@ bot to. Copy the ID (3 in image) and store it somewhere.
 room ID that you captured in step 4.
 
 From here you can use the notification device in Rule Machine. 
-
-The driver can be found here:
-github...
-
-Special thanks to @ritchierich for his Twilio driver used as the base for this driver.
-
-To-do:
-I would like to automate step 4 (and maybe step 3) at some point but I'm still pretty green in 
-groovy. Will invest the time if it turns out a lot of people use this driver and if feedback
-indicates the extra steps are onerous.
-Special thanks to @ogiewon for his original Pushover driver as inspiration for this driver.
-
